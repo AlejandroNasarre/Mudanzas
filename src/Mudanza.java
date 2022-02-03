@@ -26,27 +26,24 @@ public class Mudanza {
         return coste;
     }
 
-    public int viajes() {
-        int viajes = 0;
-        boolean todoTransportado = false;
-        while (!todoTransportado) {
-            todoTransportado = true;
-            for (int i = 0; i < bultos.size(); i++) {
-                if (!(bultos.get(i).isTransportado())) {
-                    todoTransportado = false;
-                }
-            }
-            if (!todoTransportado) {
-                for (int i = 0; i < bultos.size(); i++) {
-                    if (camion.cabeBulto(bultos.get(i)) && !(bultos.get(i).isTransportado())) {
-                        camion.addBulto(bultos.get(i));
-                        bultos.get(i).setTransportado();
-                    }
-                }
-                camion.vaciaCamion();
-                viajes += 2;
+    public void cargaCamion(List<Bulto> bultos) {
+        List<Bulto> bultosCopia = new LinkedList<>(bultos);
+        for (Bulto bulto : bultosCopia) {
+            if (camion.cabeBulto(bulto)) {
+                camion.addBulto(bulto);
+                bultos.remove(bulto);
             }
         }
-        return viajes - 1;
+    }
+
+    public int viajes() {
+        int viajes = 0;
+        List<Bulto> bultosCopia = new LinkedList<>(bultos);
+        while (!bultosCopia.isEmpty()) {
+            cargaCamion(bultosCopia);
+            viajes += 2;
+            camion.vaciaCamion();
+        }
+        return viajes-1;
     }
 }

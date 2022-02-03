@@ -3,15 +3,6 @@ public class Bulto {
     private double volumen;
     private double peso;
     private boolean fragil;
-    private Boolean transportado = false;
-
-    public Boolean isTransportado() {
-        return transportado;
-    }
-
-    public void setTransportado() {
-        this.transportado = true;
-    }
 
     public Bulto(int id, double volumen, double peso, boolean fragil) {
         this.id = id;
@@ -41,15 +32,5 @@ public class Bulto {
 
     public double getCoste() {
         return isFragil() ? getPeso() * 4 : getPeso();
-    }
-
-    @Override
-    public String toString() {
-        return "Bulto{" +
-                "id=" + id +
-                ", volumen=" + volumen +
-                ", peso=" + peso +
-                ", fragil=" + fragil +
-                '}';
     }
 }

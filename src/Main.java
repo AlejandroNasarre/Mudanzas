@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         Bulto objeto1 = new Bulto(1, 5, 5);
-        Bulto objeto2 = new Bulto(2, 5, 5);
+        Bulto objeto2 = new Bulto(2, 5, 5, true);
         Bulto objeto3 = new Bulto(3, 5, 5);
         Bulto objeto4 = new Bulto(4, 5, 5);
         Bulto objeto5 = new Bulto(5, 5, 5);

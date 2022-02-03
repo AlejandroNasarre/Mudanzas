@@ -53,16 +53,4 @@ public class Camion {
     public void vaciaCamion() {
         this.bultos = new LinkedList<>();
     }
-
-    @Override
-    public String toString() {
-        return "Camion{" +
-                "matricula='" + matricula + '\'' +
-                ", volumen=" + volumen +
-                ", peso=" + peso +
-                ", volumen ocupado=" + getVolumenOcupado() +
-                ", peso ocupado=" + getPesoOcupado() +
-                ", bultos=" + bultos +
-                '}';
-    }
 }
